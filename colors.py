@@ -27,6 +27,23 @@ class Colors:
             l.append(maxRGB)
 
             self.colors.append(l)
+
+        diff = []
+        for color in self.colors:
+            d = []
+            d.append(color[0])
+            d.append(sum(color[2]) - sum(color[1]))
+            diff.append(d)
+        order = sorted(diff, key=lambda color : color[1])
+
+        codes = []
+        for color in self.colors:
+            codes.append(color[0])
+
+        orderColors = []
+        for i in order:
+            orderColors.append(self.colors[codes.index(i[0])])
+
         return self.colors
 
 
