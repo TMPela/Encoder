@@ -9,7 +9,48 @@ screen = pygame.display.set_mode(size)
 
 files = os.listdir('InputEncoder')
 
-n01Count = 0
+count = [
+        ['N10', 0],
+        ['04', 0],
+        ['M3', 0],
+        ['C2', 0],
+        ['B34', 0],
+        ['N01', 0],
+        ['N21', 0],
+        ['N19', 0],
+        ['017', 0],
+        ['C14', 0],
+        ['040', 0],
+        ['M20', 0],
+        ['C18', 0],
+        ['048', 0],
+        ['M49', 0],
+        ['C50', 0],
+        ['N11', 0],
+        ['022', 0],
+        ['M16', 0],
+        ['C15', 0],
+        ['042', 0],
+        ['M24', 0],
+        ['C32', 0],
+        ['044', 0],
+        ['M43', 0],
+        ['C41', 0],
+        ['N09', 0],
+        ['030', 0],
+        ['M29', 0],
+        ['C28', 0],
+        ['R26', 0],
+        ['N05', 0],
+        ['012', 0],
+        ['M8', 0],
+        ['C6', 0],
+        ['N07', 0],
+        ['E60', 0],
+        ['E80', 0],
+        ['E100', 0],
+        ['L46', 0]
+        ]
 
 colors = Colors()
 calibration = colors.load()
@@ -41,6 +82,9 @@ for f in files:
                 maxRGB = c[2]
                 if color[0] >= minRGB[0] and color[0] <= maxRGB[0] and color[1] >= minRGB[1] and color[1] <= maxRGB[1] and color[2] >= minRGB[2] and color[2] <= maxRGB[2]:
                     l.append(c[0])
+                    for code in count:
+                        if c[0] == code[0]:
+                            code[1] += 1
                     found = True
             if found == False:
                 l.append(' - ')
