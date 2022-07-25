@@ -43,7 +43,7 @@ class Colors:
         orderColors = []
         for i in order:
             orderColors.append(self.colors[codes.index(i[0])])
-
+        
         return self.colors
 
 
