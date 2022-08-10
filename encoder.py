@@ -146,10 +146,16 @@ for f in files:
     pygame.display.update()
     pygame.image.save(screen, 'OutputEncoder/Hoja ' + name + '.png')
 
+<<<<<<< HEAD
 f = open('Cantidades.txt', 'w')
 for code in count:
     f.write(str(code) + '\n')
 f.close()
+=======
+print('Cantidades de venecitas:')
+print(count)
+
+>>>>>>> master
 
 print('Cantidades de venecitas:')
 print(count)
