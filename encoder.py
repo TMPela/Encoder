@@ -49,14 +49,14 @@ count = [
         ['E60', 0],
         ['E80', 0],
         ['E100', 0],
-        ['L46', 0]
+        ['L46', 0],
+        ['NoN', 0]
         ]
 
 colors = Colors()
 calibration = colors.load()
 
 for f in files:
-    #print(f)
     name = f[5:8]
 
     image = pygame.image.load('InputEncoder/' + f)
@@ -88,11 +88,10 @@ for f in files:
                     found = True
             if found == False:
                 l.append(' - ')
+                count[len(count) - 1][1] += 1
             xc += 1
         codeList.append(l)
         yc += 1
-
-    print(len(codeList[0]))
 
     fSize = 12
     nameFont = pygame.font.SysFont('arial', 26)
@@ -139,11 +138,19 @@ for f in files:
 
     screen.blit(title, (size[0]/2, 15))
 
+    f = open('OutputEncoder/TextFormat/Hoja' + name + '.txt','w')
+    for line in codeList:
+        f.write(str(line) + '\n')
+    f.close()
+
     pygame.display.update()
     pygame.image.save(screen, 'OutputEncoder/Hoja ' + name + '.png')
 
+f = open('Cantidades.txt', 'w')
+for code in count:
+    f.write(str(code) + '\n')
+f.close()
+
 print('Cantidades de venecitas:')
-print(f'    N01: {n01Count}')
-
-
+print(count)
 
